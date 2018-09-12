@@ -1,0 +1,27 @@
+[ignore]
+<PROJECT_ROOT>/node_modules/.*/warning.js
+<PROJECT_ROOT>/node_modules/findup/test/fixture/config.json
+<PROJECT_ROOT>/node_modules/findup/test/fixture/f/e/d/c/b/a/top.json
+<PROJECT_ROOT>/node_modules/findup/test/fixture/f/e/d/c/config.json
+
+[include]
+<PROJECT_ROOT>/src/*
+
+[libs]
+./flow-typed
+./flow-typed/rws/CSSModule.js
+
+[lints]
+
+[options]
+module.name_mapper='.+\(.s?css\)' -> 'CSSModule'
+module.name_mapper='components' -> '<PROJECT_ROOT>/src/components'
+module.name_mapper='containers' -> '<PROJECT_ROOT>/src/containers'
+module.name_mapper='modules' -> '<PROJECT_ROOT>/src/modules'
+module.name_mapper='routes' -> '<PROJECT_ROOT>/src/routes'
+module.name_mapper='shared' -> '<PROJECT_ROOT>/src/shared'
+module.name_mapper='styles' -> '<PROJECT_ROOT>/src/styles'
+module.name_mapper='utils' -> '<PROJECT_ROOT>/src/utils'
+module.system=haste
+
+[strict]

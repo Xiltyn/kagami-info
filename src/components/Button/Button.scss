@@ -1,0 +1,109 @@
+/*!
+ * Made with <3 by Kagami | jakub.bujko@kagami.info
+ * -----  kagami-info  -----
+ *   > $file.filename
+ *   > created @ 9/12/18 2:43 AM
+ */
+
+@import "../../styles/core/variables";
+
+.btn-container {
+	width: 164px;
+	height: 70px;
+	padding: 16px;
+	margin: 8px;
+	box-sizing: border-box;
+
+	.btn {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		font-family: $OPEN_SANS;
+		font-size: 14px;
+		font-weight: 400;
+		border-radius: 24px;
+		opacity: .7;
+		transition: all .4s cubic-bezier(.75,.02,.47,1.63);
+
+		&:after,
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			width: inherit;
+			height: inherit;
+			border-radius: inherit;
+			background: transparent;
+
+			opacity: 0;
+
+			transition: all .4s cubic-bezier(.75,.02,.47,1.63);
+		}
+
+		&-primary {
+			border: 1px solid $GREY_LIGHT;
+			background: rgba($GREY_LIGHT, 0);
+			color: $GREY_LIGHT;
+
+			&:after,
+			&:before {
+				border: .5px solid rgba($GREY_LIGHT, .8);
+			}
+		}
+		&-secondary {
+			border: 1px solid $PRIMARY;
+			background: rgba($PRIMARY, 0);
+			color: $PRIMARY;
+
+			&:after,
+			&:before {
+				border: .5px solid rgba($PRIMARY, .8);
+			}
+		}
+		&-cta {
+
+		}
+		&-warning {
+
+		}
+		&-confirmation {
+
+		}
+
+		&:hover {
+			color: $GREY_DARK;
+			opacity: 1;
+
+			&.btn-primary {
+				background: $GREY_LIGHT;
+			}
+			&.btn-secondary {
+				background: $PRIMARY;
+			}
+
+			&:after {
+				top: -8px;
+				left: -8px;
+				width: calc(100% + 16px);
+				height: calc(100% + 16px);
+				border-radius: 32px;
+				opacity: 1;
+			}
+
+			&:before {
+				top: -4px;
+				left: -4px;
+				width: calc(100% + 8px);
+				height: calc(100% + 8px);
+				border-radius: 28px;
+				opacity: 1;
+			}
+		}
+
+		&:active {
+			opacity: .7;
+		}
+	}
+}

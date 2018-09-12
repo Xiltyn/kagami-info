@@ -1,0 +1,17 @@
+// CORE
+@import "core/reset";
+@import "core/fonts";
+@import "core/variables";
+// UTILS
+@import "utils/typography";
+
+html, body, #root {
+	width: 100%;
+	height: 100%;
+	background: $GREY_DARK;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	h1 {
+		font-family: $MONTSERRAT;
+	}
+}
