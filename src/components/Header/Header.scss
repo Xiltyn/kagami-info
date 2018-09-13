@@ -1,0 +1,70 @@
+/*!
+ * Made with <3 by Kagami | jakub.bujko@kagami.info
+ * -----  kagami-info  -----
+ *   > $file.filename
+ *   > created @ 9/12/18 1:36 AM
+ */
+
+@import "../../styles/core/variables";
+
+.header {
+	position: relative;
+
+	width: 100%;
+	height: 171px;
+
+	overflow:hidden;
+
+	&-logo {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+
+
+		img {
+			position: relative;
+			display: block;
+			margin: 16px auto 0;
+			height: 120px;
+			width: 148px;
+
+			z-index: 10;
+		}
+
+		&:after {
+			content: '';
+
+			position: absolute;
+			top: -40%;
+			left: 50%;
+			height: 160%;
+			width: 60%;
+			transform: translateX(-50%);
+			background: radial-gradient(ellipse at center, rgba($GREY_DARK,1) 0%,rgba($GREY_DARK,.9) 20%,rgba($GREY_DARK,0) 80%);
+
+			z-index: 5;
+		}
+	}
+
+	.shape-container {
+		position: relative;
+		width: 100%;
+		height: 100%;
+
+		img {
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			width: auto;
+			height: 100%;
+			transform: translateX(-50%);
+
+			@media screen and (min-width: 1440px) {
+				width: 100%;
+				height: auto;
+			}
+		}
+	}
+}

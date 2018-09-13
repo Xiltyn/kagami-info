@@ -1,0 +1,30 @@
+/*!
+ * Made with <3 by Kagami | jakub.bujko@kagami.info
+ * -----  kagami-info  -----
+ *   > $file.filename
+ *   > created @ 9/12/18 10:48 PM
+ */
+
+.separator {
+	position: relative;
+	height: 2px;
+	padding: 0;
+	margin: 12px 0 24px;
+	&--long {
+		width: 100%;
+	}
+
+	&--short {
+		width: 240px;
+	}
+
+	img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 2px;
+
+		margin: 0;
+	}
+}

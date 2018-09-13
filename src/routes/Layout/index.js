@@ -22,7 +22,7 @@ if (process.env.NODE_ENV === 'development') {
 
 const Layout = () => (
     <div>
-        <Helmet titleTemplate="%s - Resume Writing Sucks" defaultTitle="Resume Writing Sucks" />
+        <Helmet titleTemplate="%s - Kagami | Jakub Bujko" defaultTitle="Kagami | Jakub Bujko" />
 
         <Switch>
             <RouteHandler path="/login" component={ Login } exact={ true } />

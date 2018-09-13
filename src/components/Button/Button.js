@@ -18,7 +18,7 @@ type ButtonProps = {
     /** Button type */
     type:'primary'|'secondary'|'cta'|'warning'|'confirmation',
     /** Callback which fires when the button is clicked */
-    onClick:() => void,
+    onClick:(evt:*) => void,
     /** Sets button styles to an alternative version */
     isAlt?:boolean,
     /** If isLoading is TRUE, Button's copy will change to loader */

@@ -34,6 +34,7 @@
 		"morgan": "~1.8.1",
 		"node-sass": "^4.9.0",
 		"nprogress": "^0.2.0",
+		"popmotion": "^8.3.8",
 		"prop-types": "^15.6.2",
 		"react": "^16.4.1",
 		"react-dom": "^16.4.1",

@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import posed from 'react-pose';
 import { logger } from './logger';
+import camelCaseToDash from './camelCaseToDash';
 
-const animationContainer = ComponentToAnimate => class extends Component {
+const animationContainer = ComponentToAnimate => class AnimationContainer extends Component {
     static propTypes = {
         isMounted: PropTypes.bool.isRequired,
         delayTime: PropTypes.number.isRequired,
@@ -86,7 +87,7 @@ const animationContainer = ComponentToAnimate => class extends Component {
 
     getComponentName = (options = { debug: false }) => {
         const component = <ComponentToAnimate/>;
-        const displayName = component.type.displayName.toLowerCase();
+        const displayName = component.type.displayName;
         const regex_compName = /connect\(|\)/gm;
 
         if(displayName.includes('connect')) {
@@ -134,7 +135,7 @@ const animationContainer = ComponentToAnimate => class extends Component {
 
         return this.state.shouldRender ?
             <AnimationWrapper
-                className={ `animation-container animation-container--${componentName}` }
+                className={ `animation-container animated-${camelCaseToDash(componentName)}` }
                 pose={ shouldAnimate ? `${componentName}enter` : isMounted ? `${componentName}preEnter` : `${componentName}exit` }>
                 <ComponentToAnimate { ...this.props } />
             </AnimationWrapper> : null;

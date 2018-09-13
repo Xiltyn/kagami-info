@@ -2,48 +2,42 @@
  = Made with <3 by Kagami | jakub.bujko@kagami.info
  = -----  kagami-info  -----
  =   > $file.filename
- =   > created @ 9/11/18 11:35 PM
+ =   > created @ 9/13/18 1:41 AM
  ===============================================*/
 
 // @flow
 
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import type { Dispatch, State } from '../../shared/redux.types';
-import type { copy } from '../../modules/app/types';
+import svg from '../../utils/svg';
 
 import './Navigation.scss';
 
 type NavigationProps = {
-    copy?:copy
+
 }
 
-type NavigationState = {}
+type NavigationState = {
 
-const mapStateToProps = (state:State) => ({
-    copy: state.app.copy,
-});
-
-const mapDispatchToProps = (dispatch:Dispatch) => bindActionCreators({
-
-}, dispatch);
+}
 
 class Navigation extends Component<NavigationProps, NavigationState> {
 
     render() {
-        const {
-            copy,
-        } = this.props;
 
         return (
-            <div className='navigation'>
-                <h1 className="text-bit">
-                    {copy.find(el => el.name === 'hero_top').text}
-                </h1>
-            </div>
+            <nav className="navigation">
+                <div className="svg-container menu-inner">
+                    { svg.menu_inner }
+                </div>
+                <div className="svg-container menu-outer">
+                    { svg.menu_outer }
+                    <h3 className="text-bit text-bit-alt text-bit-alt--primary">
+                        menu
+                    </h3>
+                </div>
+            </nav>
         );
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
+export default Navigation;
