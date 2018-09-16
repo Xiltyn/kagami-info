@@ -73,12 +73,14 @@ class Services extends Component<ServicesProps, ServicesState> {
                     <AnimatedMockup
                         poses={ servicesPoses.onMountMockup }
                         delay={ 800 }
-                        isMounted={ scrollPosition > (servicesScrollPosition - 80) }
+                        scrollPosition={ scrollPosition - servicesScrollPosition }
+                        isMounted={ scrollPosition > (servicesScrollPosition - 200) }
                         showcase={ Services.exampleProject }/>
                     <AnimatedArticle
                         poses={ servicesPoses.onMountArticle }
-                        delay={ 800 }
-                        isMounted={ scrollPosition > (servicesScrollPosition - 80) }
+                        delay={ 1000 }
+                        scrollPosition={ scrollPosition - servicesScrollPosition }
+                        isMounted={ scrollPosition > (servicesScrollPosition - 200) }
                         copy={ copy }/>
                     <ScrollButton onClick={ evt => logger(' Hero.js |> Scroll Button onClick event :: ', 'INFO', evt) }/>
                 </div>

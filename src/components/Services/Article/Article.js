@@ -12,6 +12,7 @@ import './Article.scss';
 
 type ArticleProps = {
     copy:copy,
+    scrollPosition:number,
 }
 
 type ArticleState = {
@@ -23,10 +24,13 @@ class Article extends Component<ArticleProps, ArticleState> {
     render() {
         const {
             copy,
+            scrollPosition,
         } = this.props;
 
         return(
-            <article className="services-article">
+            <article
+                className="services-article"
+                style={ { transform: `translateY(${(scrollPosition) / 10}px)` } }>
                 <h2>
                     { copy[ 'services_article_header' ] }
                 </h2>
