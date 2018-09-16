@@ -9,29 +9,35 @@ import Separator from '../../Separator/Separator';
 import React from 'react';
 import animationContainer from '../../../utils/animationContainer';
 import { heroPoses } from '../../../shared/poses.config';
+import type { copy } from '../../../modules/app/types';
 
 import './Info.scss';
 
 const TextBit = (props:{ copy:* }) => <h1 className="text-bit">
-    {props.copy && props.copy.find(el => el.name === 'hero_top').text}
+    {props.copy[ 'hero_top' ]}
 </h1>;
 
-const Article = () => <article>
-    <p>
-        Theres a holdout in the Bronx, Brooklyns broken out in fights. Theres a traffic jam in Harlem thats backed up to Jackson Heights. Theres a Scout troop short a child, Khrushchevs due at Idelwyld... Car 54, where are you?
-    </p>
-    <p>
-        They arrived in fifty mother ships, offering their friendship and advance technology to Earth. Skeptical of the visitors, Mike Donovan and Juliet Parrish infiltrated their ranks and soon discovered some startling secrets. The resistance is all that stands between us... and the visitors.
-    </p>
+const Description = (props:{ copy:* }) => <article>
+    {
+        props.copy[ 'hero_article' ].constructor === Array ?
+            props.copy[ 'hero_article' ].map((paragraph:string, index:number) =>
+                <p key={ index }>
+                    { paragraph }
+                </p>
+            ) :
+            <p>
+                { props.copy[ 'hero_article' ] }
+            </p>
+    }
 </article>;
 
 
 const AnimatedTextBit = animationContainer(TextBit);
 const AnimatedSeparator = animationContainer(Separator);
-const AnimatedArticle = animationContainer(Article);
+const AnimatedDescription = animationContainer(Description);
 
 type InfoProps = {
-    copy:*;
+    copy:copy;
     scrollPosition:number,
 }
 
@@ -41,7 +47,7 @@ const Info = (props:InfoProps) => {
         scrollPosition,
     } = props;
 
-    return (
+    return copy &&
         <div className="info">
             <AnimatedTextBit
                 copy={ copy }
@@ -53,12 +59,12 @@ const Info = (props:InfoProps) => {
                 poses={ heroPoses.onMountInfoSeparator }
                 delay={ 1000 }
                 isMounted={ scrollPosition >= 0 }/>
-            <AnimatedArticle
+            <AnimatedDescription
+                copy={ copy }
                 poses={ heroPoses.onMountInfoPara }
                 delay={ 1200 }
                 isMounted={ scrollPosition >= 0 }/>
-        </div>
-    );
+        </div>;
 };
 
 export default Info;

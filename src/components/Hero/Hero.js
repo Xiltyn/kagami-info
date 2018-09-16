@@ -15,11 +15,13 @@ import Imagery from './Imagery/Imagery';
 import animationContainer from '../../utils/animationContainer';
 import { heroPoses } from '../../shared/poses.config';
 import { logger } from '../../utils/logger';
+import ScrollButton from '../ScrollButton/ScrollButton';
+import type { copy } from '../../modules/app/types';
 
 const AnimatedImagery = animationContainer(Imagery);
 
 type HeroProps = {
-    copy:*;
+    copy:copy;
     scrollPosition:number;
 }
 
@@ -46,7 +48,7 @@ class Hero extends Component<HeroProps, HeroState> {
         window.removeEventListener('mousemove', this.onMouseMove);
     }
 
-    onMouseMove = (evt:*, options:{ debug:boolean } = { debug: true }) => {
+    onMouseMove = (evt:*, options:{ debug:boolean } = { debug: false }) => {
         if(options.debug){
             logger('==> Hero.js |> onMouseMove evt coords :: ', 'INFO', { x: evt.x, y: evt.y });
         }
@@ -83,6 +85,7 @@ class Hero extends Component<HeroProps, HeroState> {
                     mousePosition={ mousePosition }
                     poses={ heroPoses.onMountImagery }
                     isMounted={ scrollPosition >= 0 }/>
+                <ScrollButton onClick={ evt => logger(' Hero.js |> Scroll Button onClick event :: ', 'INFO', evt) }/>
             </section>
         );
     }

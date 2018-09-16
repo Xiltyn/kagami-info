@@ -8,11 +8,20 @@
 // @flow
 
 export type homeState = {
-    copy:Array<copy>,
+    copy:copy,
     message:string,
 }
 
 export type copy = {
-    name:string,
-    text:string,
+    [key:string]:string|Array<string>
+}
+
+export type project = {
+    title:string,
+    description:string|Array<string>,
+    images:{
+        thumbnail:string,
+        full:string,
+        layout:string,
+    }
 }

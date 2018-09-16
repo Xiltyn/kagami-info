@@ -5,6 +5,7 @@ import type { Dispatch, State } from '../../shared/redux.types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Hero from '../../components/Hero/Hero';
+import Services from '../../components/Services/Services';
 
 type HomeProps = {
     copy:*;
@@ -30,6 +31,29 @@ class Home extends Component<HomeProps, HomeState> {
         };
     }
 
+    componentDidMount() {
+        document.addEventListener('scroll', this.handleScrollPosition);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('scroll', this.handleScrollPosition);
+    }
+
+    handleScrollPosition = () => {
+        //let supportPageOffset = window.pageXOffset !== undefined;
+        //let isCSS1Compat = ((document.compatMode || '') === 'CSS1Compat');
+        let scroll = {
+            x: window.pageXOffset,
+            y: window.pageYOffset,
+        };
+
+        //logger('==> Home.js |> handleScrollPosition scroll :: ', 'INFO', scroll);
+
+        this.setState({
+            scrollPosition: scroll.y,
+        });
+    };
+
     render() {
         const {
             copy,
@@ -42,6 +66,9 @@ class Home extends Component<HomeProps, HomeState> {
         return (
             <div className="home">
                 <Hero
+                    scrollPosition={ scrollPosition }
+                    copy={ copy }/>
+                <Services
                     scrollPosition={ scrollPosition }
                     copy={ copy }/>
             </div>

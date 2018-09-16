@@ -43,12 +43,17 @@ const animationContainer = ComponentToAnimate => class AnimationContainer extend
 
     componentDidMount() {
         const _TIMEOUT = 300;
+        const {
+            isMounted,
+        } = this.props;
 
-        setTimeout(() => {
-            this.setState({
-                shouldAnimate: true,
-            });
-        }, _TIMEOUT);
+        if(isMounted) {
+            setTimeout(() => {
+                this.setState({
+                    shouldAnimate: true,
+                });
+            }, _TIMEOUT);
+        }
     }
 
     componentDidUpdate(oldProps) {
@@ -65,7 +70,7 @@ const animationContainer = ComponentToAnimate => class AnimationContainer extend
             }, delayTime);
 
         } else if(!oldProps.isMounted && isMounted) {
-            const _TIMEOUT = 300;
+            const _TIMEOUT = 500;
 
             this.setState({
                 shouldRender: true,

@@ -15,3 +15,11 @@ html, body, #root {
 		font-family: $MONTSERRAT;
 	}
 }
+
+.content {
+	background: url("images/background_line.png");
+	background-repeat: no-repeat;
+	background-position: center 552px;
+
+	height: 500vh;
+}

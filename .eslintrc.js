@@ -66,6 +66,7 @@ module.exports = {
         'react/jsx-indent': [ 'error', 4 ],
         'react/jsx-no-bind': 0,
         'react/prefer-stateless-function': 0,
+        'react/no-find-dom-node': 0,
         'semi': [ 2, 'always' ],
         'space-before-function-paren': [ 'error', 'never' ],
         'space-in-parens': [ 'error', 'never' ],

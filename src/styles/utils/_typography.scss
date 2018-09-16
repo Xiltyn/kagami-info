@@ -28,6 +28,9 @@ body {
 		&--secondary {
 			color: $SECONDARY;
 		}
+		&--default {
+			color: $GREY_LIGHT;
+		}
 	}
 }
 

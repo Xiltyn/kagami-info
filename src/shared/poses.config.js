@@ -112,3 +112,45 @@ export const heroPoses = {
     },
 };
 
+export const servicesPoses = {
+    onMountMockup: {
+        preEnter: {
+            x: '-300px',
+            opacity: 0,
+            transition: (props:*) => tween({ ...props, duration: 800 }),
+        },
+        enter: {
+            x: 0,
+            opacity: 1,
+            transition: (props:*) => tween({ ...props, duration: 800 }),
+        },
+        exit: {
+            x: '-300px',
+            opacity: 0,
+            transition: (props:*) => tween({ ...props, duration: 800 }),
+        },
+        initialPose: 'preEnter',
+    },
+    onMountArticle: {
+        preEnter: {
+            x: '300px',
+            opacity: 0,
+            delay: 600,
+            transition: (props:*) => tween({ ...props, duration: 800 }),
+        },
+        enter: {
+            x: 0,
+            opacity: 1,
+            delay: 600,
+            transition: (props:*) => tween({ ...props, duration: 800 }),
+        },
+        exit: {
+            x: '300px',
+            opacity: 0,
+            delay: 600,
+            transition: (props:*) => tween({ ...props, duration: 800 }),
+        },
+        initialPose: 'preEnter',
+    },
+};
+
