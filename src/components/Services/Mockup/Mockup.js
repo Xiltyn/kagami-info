@@ -6,7 +6,6 @@
  ===============================================*/
 
 import React, { Component } from 'react';
-import { logger } from '../../../utils/logger';
 import type { project } from '../../../modules/app/types';
 
 import './Mockup.scss';
@@ -27,8 +26,6 @@ class Mockup extends Component<MockupProps, MockupState> {
             showcase,
             scrollPosition,
         } = this.props;
-
-        logger('==> Mockup.js |> this.props.showcase :: ', 'INFO', showcase);
 
         return(
             <div

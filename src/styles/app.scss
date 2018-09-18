@@ -15,11 +15,32 @@ html, body, #root {
 		font-family: $MONTSERRAT;
 	}
 }
+.content-viewport {
+	position: relative;
 
-.content {
-	background: url("images/background_line.png");
-	background-repeat: no-repeat;
-	background-position: center 552px;
+	@media screen and (min-width: 1024px) {
+		height: 105vh;
+		width: 100%;
 
-	height: 500vh;
+		overflow: hidden;
+	}
+
+	.content-container {
+		position: relative;
+		height: 500vh;
+		transform: translateY(0);
+
+		transition: transform 1s ease-in-out;
+
+		.content {
+			background: url("images/background_line.png");
+			background-repeat: no-repeat;
+			background-position: center 552px;
+
+			height: 100%;
+
+		}
+	}
 }
+
+
