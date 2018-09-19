@@ -12,6 +12,8 @@
 	.services-article {
 		width: 100%;
 
+		transition: transform .3s ease-out;
+
 		h2 {
 			color: #fff;
 			padding-bottom: 24px;

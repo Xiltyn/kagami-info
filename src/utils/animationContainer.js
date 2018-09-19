@@ -93,9 +93,9 @@ const animationContainer = ComponentToAnimate => class AnimationContainer extend
     getComponentName = (options = { debug: false }) => {
         const component = <ComponentToAnimate/>;
         const displayName = component.type.displayName;
-        const regex_compName = /connect\(|\)/gm;
+        const regex_compName = /Connect\(|\)/gm;
 
-        if(displayName.includes('connect')) {
+        if(displayName.includes('Connect')) {
             const result = displayName.replace(regex_compName, '');
 
             if(options.debug) {

@@ -7,6 +7,12 @@
 
 @import "../../styles/core/variables";
 
+.animated-header {
+	position: fixed;
+	z-index: 50;
+	width: 100%;
+}
+
 .header {
 	position: relative;
 

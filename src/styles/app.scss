@@ -15,7 +15,7 @@ html, body, #root {
 		font-family: $MONTSERRAT;
 	}
 }
-.content-viewport {
+.content-container {
 	position: relative;
 
 	@media screen and (min-width: 1024px) {
@@ -25,21 +25,12 @@ html, body, #root {
 		overflow: hidden;
 	}
 
-	.content-container {
+	.content {
 		position: relative;
 		height: 500vh;
 		transform: translateY(0);
 
 		transition: transform 1s ease-in-out;
-
-		.content {
-			background: url("images/background_line.png");
-			background-repeat: no-repeat;
-			background-position: center 552px;
-
-			height: 100%;
-
-		}
 	}
 }
 

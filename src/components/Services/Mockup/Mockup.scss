@@ -24,6 +24,7 @@
 		background-size: contain;
 		background-repeat: no-repeat;
 
+		transition: transform .3s ease-out;
 		box-sizing: border-box;
 		.showcase-container {
 			position: absolute;

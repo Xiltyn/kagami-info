@@ -38,13 +38,13 @@ const AnimatedDescription = animationContainer(Description);
 
 type InfoProps = {
     copy:copy;
-    scrollPosition:number,
+    shouldAnimate:boolean,
 }
 
 const Info = (props:InfoProps) => {
     const {
         copy,
-        scrollPosition,
+        shouldAnimate,
     } = props;
 
     return copy &&
@@ -53,17 +53,17 @@ const Info = (props:InfoProps) => {
                 copy={ copy }
                 poses={ heroPoses.onMountInfoHeader }
                 delay={ 800 }
-                isMounted={ scrollPosition >= 0 }/>
+                isMounted={ shouldAnimate }/>
             <AnimatedSeparator
                 type='LONG'
                 poses={ heroPoses.onMountInfoSeparator }
                 delay={ 1000 }
-                isMounted={ scrollPosition >= 0 }/>
+                isMounted={ shouldAnimate }/>
             <AnimatedDescription
                 copy={ copy }
                 poses={ heroPoses.onMountInfoPara }
                 delay={ 1200 }
-                isMounted={ scrollPosition >= 0 }/>
+                isMounted={ shouldAnimate }/>
         </div>;
 };
 
