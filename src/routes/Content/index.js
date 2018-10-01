@@ -3,7 +3,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Home from '../../containers/Home/Home';
-import Navigation from '../../components/Navigation/Navigation';
 
 import { logger } from '../../utils/logger';
 
@@ -29,7 +28,6 @@ class Content extends Component<ContentProps, ContentState> {
             <div
                 className="content-container">
                 <div className="content">
-                    <Navigation/>
                     <Route path={ '/' } component={ Home } exact={ true }/>
                 </div>
             </div>

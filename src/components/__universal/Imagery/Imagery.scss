@@ -27,27 +27,6 @@
 			.layer {
 				position: absolute;
 				transition: transform .3s ease-out;
-
-				&-1 {
-					width: 250px;
-					height: 237px;
-					top: 10%;
-					left: 55%;
-				}
-
-				&-2 {
-					width: 431px;
-					height: 233px;
-					top: 60%;
-					left: 5%;
-				}
-
-				&-3 {
-					width: 274px;
-					height: 335px;
-					top: 5%;
-					left: 10%;
-				}
 			}
 		}
 	}

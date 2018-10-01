@@ -6,12 +6,12 @@
  ===============================================*/
 
 import React, { Component } from 'react';
-import type { copy } from '../../../modules/app/types';
 
 import './Article.scss';
 
 type ArticleProps = {
-    copy:copy,
+    body:string,
+    header:string,
     scrollPosition:number,
 }
 
@@ -23,26 +23,26 @@ class Article extends Component<ArticleProps, ArticleState> {
 
     render() {
         const {
-            copy,
+            body,
+            header,
             scrollPosition,
         } = this.props;
 
         return(
             <article
-                className="services-article"
                 style={ { transform: `translateY(${(scrollPosition) / 10}px)` } }>
                 <h2>
-                    { copy[ 'services_article_header' ] }
+                    { header }
                 </h2>
                 {
-                    copy[ 'services_article_body' ].constructor === Array ?
-                        copy[ 'services_article_body' ].map((paragraph:string, index:number) =>
+                    body.constructor === Array ?
+                        body.map((paragraph:string, index:number) =>
                             <p key={ index }>
                                 { paragraph }
                             </p>
                         ) :
                         <p>
-                            { copy[ 'services_article_body' ] }
+                            { body }
                         </p>
                 }
             </article>

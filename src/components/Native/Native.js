@@ -2,42 +2,48 @@
  = Made with <3 by Kagami | jakub.bujko@kagami.info
  = -----  kagami-info  -----
  =   > $file.filename
- =   > created @ 9/16/18 1:27 AM
+ =   > created @ 10/1/18 3:34 AM
+ ===============================================*/
+
+/*================================================
+ = Made with <3 by Kagami | jakub.bujko@kagami.info
+ = -----  kagami-info  -----
+ =   > $file.filename
+ =   > created @ 10/1/18 1:04 AM
  ===============================================*/
 
 // @flow
 
 import React, { Component } from 'react';
 import Article from '../__universal/Article/Article';
+import Mockup from '../__universal/Mockup/Mockup';
 import type { copy, project } from '../../modules/app/types';
 
-import './Services.scss';
+import './Native.scss';
 import animationContainer from '../../utils/animationContainer';
-import { servicesPoses } from '../../shared/poses.config';
-import ScrollButton from '../__universal/ScrollButton/ScrollButton';
-import Mockup from '../__universal/Mockup/Mockup';
+import { nativePoses } from '../../shared/poses.config';
 
 const AnimatedMockup = animationContainer(Mockup);
 const AnimatedArticle = animationContainer(Article);
 
-type ServicesProps = {
+type NativeProps = {
     copy:copy,
     shouldAnimate:boolean,
     mousePosition:{x:number,y:number},
     nextSection:() => void,
 }
 
-type ServicesState = {
+type NativeState = {
 }
 
-class Services extends Component<ServicesProps, ServicesState> {
+class Native extends Component<NativeProps, NativeState> {
     static exampleProject:project = {
         title: 'Example project',
         description: 'Lorem ipsum...',
         images: {
             thumbnail: '',
             full: '',
-            layout: 'mockup_inside.jpg',
+            layout: 'iphone_mockup_preview.jpg',
         },
     };
 
@@ -46,33 +52,35 @@ class Services extends Component<ServicesProps, ServicesState> {
             copy,
             shouldAnimate,
             mousePosition,
-            nextSection,
         } = this.props;
 
         return(
-            <section className="services">
+            <section className="native">
                 <h1 className="text-bit text-bit-alt text-bit-alt--default">
-                    { copy[ 'services_top' ] }
+                    { copy[ 'native_top' ] }
                 </h1>
-                <div className="services-content">
+                <div className="native-content">
                     <AnimatedMockup
-                        poses={ servicesPoses.onMountMockup }
+                        poses={ nativePoses.onMountMockup }
                         delay={ 800 }
-                        scrollPosition={ mousePosition.y }
+                        isIphone={ true }
+                        scrollPosition={ mousePosition.y * .5 }
                         isMounted={ shouldAnimate }
-                        showcase={ Services.exampleProject }/>
+                        showcase={ Native.exampleProject }/>
                     <AnimatedArticle
-                        poses={ servicesPoses.onMountArticle }
+                        poses={ nativePoses.onMountArticle }
                         delay={ 1000 }
                         scrollPosition={ mousePosition.y }
                         isMounted={ shouldAnimate }
-                        header={ copy[ 'services_article_header' ] }
-                        body={ copy[ 'services_article_body' ] }/>
-                    <ScrollButton onClick={ nextSection }/>
+                        header={ copy[ 'native_article_header' ] }
+                        body={ copy[ 'native_article_body' ] }/>
+                    <div className="image-container">
+                        <img src={ require('../../styles/images/icn-creativity.png') } alt="Creativity Icon"/>
+                    </div>
                 </div>
             </section>
         );
     }
 }
 
-export default Services;
+export default Native;

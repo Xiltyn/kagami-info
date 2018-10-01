@@ -5,7 +5,7 @@
  =   > created @ 9/12/18 11:48 PM
  ===============================================*/
 
-import Separator from '../../Separator/Separator';
+import Separator from '../../__universal/Separator/Separator';
 import React from 'react';
 import animationContainer from '../../../utils/animationContainer';
 import { heroPoses } from '../../../shared/poses.config';

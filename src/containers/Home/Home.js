@@ -16,6 +16,10 @@ import './Home.scss';
 
 import type { Dispatch, State } from '../../shared/redux.types';
 import { logger } from '../../utils/logger';
+import Seo from '../../components/Seo/Seo';
+import Native from '../../components/Native/Native';
+import Quality from '../../components/Quality/Quality';
+import Navigation from '../../components/Navigation/Navigation';
 
 const AnimatedHeader = animationContainer(Header);
 
@@ -97,8 +101,13 @@ class Home extends Component<HomeProps, HomeState> {
                        });
                    }
 
+                   const windowHeight = window.innerHeight;
+
                    return(
                        <div className="home">
+                           <Navigation
+                               scrollTo={ fullpageApi.moveTo }
+                               positionTop={ fullpageApi.getActiveSection().index * windowHeight + windowHeight * .225 }/>
                            <AnimatedHeader
                                isMounted={ url === '/' }
                                delayTime={ 800 }
@@ -117,6 +126,27 @@ class Home extends Component<HomeProps, HomeState> {
                                    mousePosition={ mousePosition }
                                    shouldAnimate={ fullpageApi.getActiveSection().index === 1 }
                                    copy={ copy }/>
+                           </div>
+                           <div className="section">
+                               <Seo
+                                    nextSection={ fullpageApi.moveSectionDown }
+                                    mousePosition={ mousePosition }
+                                    shouldAnimate={ fullpageApi.getActiveSection().index === 2 }
+                                    copy={ copy }/>
+                           </div>
+                           <div className="section">
+                               <Native
+                                   nextSection={ fullpageApi.moveSectionDown }
+                                   mousePosition={ mousePosition }
+                                   shouldAnimate={ fullpageApi.getActiveSection().index === 3 }
+                                   copy={ copy }/>
+                           </div>
+                           <div className="section">
+                               <Quality
+                                    nextSection={ fullpageApi.moveSectionDown }
+                                    mousePosition={ mousePosition }
+                                    shouldAnimate={ fullpageApi.getActiveSection().index === 4 }
+                                    copy={ copy }/>
                            </div>
                        </div>
                    );

@@ -154,3 +154,87 @@ export const servicesPoses = {
     },
 };
 
+export const nativePoses = {
+    onMountMockup: {
+        preEnter: {
+            y: '80px',
+            opacity: 0,
+            transition: (props:*) => tween({ ...props, duration: 800 }),
+        },
+        enter: {
+            y: 0,
+            opacity: 1,
+            transition: (props:*) => tween({ ...props, duration: 800 }),
+        },
+        exit: {
+            y: '80px',
+            opacity: 0,
+            transition: (props:*) => tween({ ...props, duration: 800 }),
+        },
+        initialPose: 'preEnter',
+    },
+    onMountArticle: {
+        preEnter: {
+            y: '-80px',
+            opacity: 0,
+            delay: 200,
+            transition: (props:*) => tween({ ...props, duration: 800 }),
+        },
+        enter: {
+            y: 0,
+            opacity: 1,
+            delay: 200,
+            transition: (props:*) => tween({ ...props, duration: 800 }),
+        },
+        exit: {
+            y: '-80px',
+            opacity: 0,
+            delay: 200,
+            transition: (props:*) => tween({ ...props, duration: 800 }),
+        },
+        initialPose: 'preEnter',
+    },
+};
+
+export const seoPoses = {
+    onMountImagery: {
+        preEnter: {
+            y: '-80px',
+            opacity: 0,
+            transition: (props:*) => tween({ ...props, duration: 800 }),
+        },
+        enter: {
+            y: 0,
+            opacity: 1,
+            transition: (props:*) => tween({ ...props, duration: 800 }),
+        },
+        exit: {
+            y: '-80px',
+            opacity: 0,
+            transition: (props:*) => tween({ ...props, duration: 800 }),
+        },
+        initialPose: 'preEnter',
+    },
+    onMountArticle: {
+        preEnter: {
+            y: '80px',
+            opacity: 0,
+            delay: 200,
+            transition: (props:*) => tween({ ...props, duration: 800 }),
+        },
+        enter: {
+            y: 0,
+            opacity: 1,
+            delay: 200,
+            transition: (props:*) => tween({ ...props, duration: 800 }),
+        },
+        exit: {
+            y: '80px',
+            opacity: 0,
+            delay: 200,
+            transition: (props:*) => tween({ ...props, duration: 800 }),
+        },
+        initialPose: 'preEnter',
+    },
+};
+

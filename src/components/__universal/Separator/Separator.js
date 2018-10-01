@@ -22,7 +22,7 @@ const Separator = (props:SeparatorProps) => {
 
     return (
         <div className={ `separator ${ type === 'LONG' ? 'separator--long' : type === 'SHORT' ? 'separator--short' : '' }` }>
-            <img src={ require('../../styles/images/separator.png') } alt=""/>
+            <img src={ require('../../../styles/images/separator.png') } alt=""/>
         </div>
     );
 };

@@ -11,10 +11,10 @@ import React, { Component } from 'react';
 
 import './Hero.scss';
 import Info from './Info/Info';
-import Imagery from './Imagery/Imagery';
+import Imagery from '../__universal/Imagery/Imagery';
 import animationContainer from '../../utils/animationContainer';
 import { heroPoses } from '../../shared/poses.config';
-import ScrollButton from '../ScrollButton/ScrollButton';
+import ScrollButton from '../__universal/ScrollButton/ScrollButton';
 import type { copy } from '../../modules/app/types';
 
 const AnimatedImagery = animationContainer(Imagery);
@@ -34,8 +34,6 @@ type HeroState = {
 }
 
 class Hero extends Component<HeroProps, HeroState> {
-
-
     render() {
         const {
             copy,
@@ -43,6 +41,40 @@ class Hero extends Component<HeroProps, HeroState> {
             shouldAnimate,
             nextSection,
         } = this.props;
+
+        const imageryConfig = [
+            {
+                styles: {
+                    width: 250,
+                    height: 237,
+                    top: '10%',
+                    left: '55%',
+                },
+                filename: require('../../styles/images/layer_1.png'),
+                name: 'Layer 1',
+            },
+            {
+                styles: {
+                    width: 431,
+                    height: 233,
+                    top: '60%',
+                    left: '5%',
+                },
+                filename: require('../../styles/images/layer_2.png'),
+                name: 'Layer 2',
+            },
+            {
+                styles: {
+                    transform: `translate(${-mousePosition.x / 25}px, ${-mousePosition.y / 30}px)`,
+                    width: 274,
+                    height: 335,
+                    top: '5%',
+                    left: '10%',
+                },
+                filename: require('../../styles/images/layer_3.png'),
+                name: 'Layer 3',
+            },
+        ];
 
         return(
             <section className="hero">
@@ -52,6 +84,7 @@ class Hero extends Component<HeroProps, HeroState> {
                 <AnimatedImagery
                     delay={ 1400 }
                     mousePosition={ mousePosition }
+                    config={ imageryConfig }
                     poses={ heroPoses.onMountImagery }
                     isMounted={ shouldAnimate }/>
                 <ScrollButton onClick={ nextSection }/>

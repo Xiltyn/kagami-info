@@ -7,7 +7,7 @@ import routesConfig from 'shared/routes.config';
 
 import AuthMiddleware from 'modules/auth/middleware';
 import { logger } from './logger';
-import LoaderSpinner from '../components/Loader/LoaderSpinner';
+import LoaderSpinner from '../components/__universal/Loader/LoaderSpinner';
 
 const mapStateToProps = state => ({
     isAuthenticated: state.auth.isAuthenticated,

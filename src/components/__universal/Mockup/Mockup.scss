@@ -2,6 +2,13 @@
  * Made with <3 by Kagami | jakub.bujko@kagami.info
  * -----  kagami-info  -----
  *   > $file.filename
+ *   > created @ 10/1/18 1:21 AM
+ */
+
+/*!
+ * Made with <3 by Kagami | jakub.bujko@kagami.info
+ * -----  kagami-info  -----
+ *   > $file.filename
  *   > created @ 9/16/18 2:56 AM
  */
 
@@ -26,6 +33,7 @@
 
 		transition: transform .3s ease-out;
 		box-sizing: border-box;
+
 		.showcase-container {
 			position: absolute;
 			top: 12px;
@@ -40,6 +48,23 @@
 
 		&:hover > .showcase-container {
 			box-shadow: 0 0 24px 0 rgba($SECONDARY_DARK, 1);
+		}
+
+		&--iphone {
+			height: 535px;
+			margin-top: -10%;
+			background: url("../../../styles/images/iphone_mockup_background.png");
+
+			.showcase-container {
+				top: 77px;
+				left: 108px;
+
+				height: 370px;
+
+				img {
+					width: 208px;
+				}
+			}
 		}
 	}
 }

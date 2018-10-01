@@ -21,7 +21,7 @@ const ScrollButton = (props:ScrollButtonProps) => {
     return (
         <div className="scroll-button">
             <button onClick={ onClick }>
-                <img src={ require('../../styles/images/scroll_icn.png') } alt="Click to scroll down!"/>
+                <img src={ require('../../../styles/images/scroll_icn.png') } alt="Click to scroll down!"/>
             </button>
         </div>
     );

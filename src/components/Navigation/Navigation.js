@@ -13,7 +13,8 @@ import svg from '../../utils/svg';
 import './Navigation.scss';
 
 type NavigationProps = {
-
+    positionTop:number,
+    scrollTo:(id:number) => void,
 }
 
 type NavigationState = {
@@ -23,9 +24,40 @@ type NavigationState = {
 class Navigation extends Component<NavigationProps, NavigationState> {
 
     render() {
+        const {
+            positionTop,
+            scrollTo,
+        } = this.props;
+
+        const navConfig = [
+            {
+                id: 1,
+                label: 'Top',
+            },
+            {
+                id: 2,
+                label: 'Services',
+            },
+            {
+                id: 3,
+                label: 'Seo',
+            },
+            {
+                id: 4,
+                label: 'Native Apps',
+            },
+            {
+                id: 5,
+                label: 'Quality',
+            },
+        ];
 
         return (
-            <nav className="navigation">
+            <nav
+                className="navigation"
+                style={ {
+                    top: positionTop,
+                } }>
                 <div className="svg-container menu-inner">
                     { svg.menu_inner }
                 </div>
@@ -35,6 +67,15 @@ class Navigation extends Component<NavigationProps, NavigationState> {
                         menu
                     </h3>
                 </div>
+                <ul>
+                    {
+                        navConfig.map((el, index) =>
+                            <li key={ index } onClick={ () => scrollTo(el.id) }>
+                                { el.label }
+                            </li>
+                        )
+                    }
+                </ul>
             </nav>
         );
     }
