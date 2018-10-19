@@ -11,6 +11,7 @@ import React, { Component } from 'react';
 import type { copy } from '../../modules/app/types';
 
 import './Quality.scss';
+import svg from '../../utils/svg';
 
 type QualityProps = {
     copy:copy,
@@ -20,13 +21,22 @@ type QualityProps = {
 }
 
 type QualityState = {
+    activeTabId:number,
 }
 
 class Quality extends Component<QualityProps, QualityState> {
+    state = {
+        activeTabId: 1,
+    };
+
     render() {
         const {
             copy,
         } = this.props;
+
+        const {
+            activeTabId,
+        } = this.state;
 
         return(
             <section className="quality">
@@ -34,7 +44,31 @@ class Quality extends Component<QualityProps, QualityState> {
                     { copy[ 'quality_top' ] }
                 </h1>
                 <div className="quality-content">
-
+                    <ul className="tabs-container">
+                        {
+                            copy.quality_tabs.map(el => (
+                                <li
+                                    key={ el.id }
+                                    className={ `tab ${ el.id === activeTabId ? 'active' : '' }` }
+                                    onMouseOver={ () => this.setState({ activeTabId: el.id }) }>
+                                    <div className="tab-image">
+                                        { svg.quality_icon_circle }
+                                        <img src={ el.image } alt={ el.label }/>
+                                    </div>
+                                    <h3>
+                                        { el.label }
+                                    </h3>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                    <div className="tab-description">
+                        <p>
+                            {
+                                copy.quality_tabs.find(el => el.id === activeTabId).body
+                            }
+                        </p>
+                    </div>
                 </div>
             </section>
         );

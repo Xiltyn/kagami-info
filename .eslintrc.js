@@ -5,6 +5,12 @@ module.exports = {
         'node': true,
         'browser': true
     },
+    'settings': {
+        "react": {
+            "version": "16.4.1",
+            "flowVersion": "0.80"
+        },
+    },
     'extends': [
         'eslint:recommended',
         'plugin:react/recommended'

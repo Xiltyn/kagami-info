@@ -7,13 +7,20 @@
 
 // @flow
 
+import { rect } from '../../shared/genericModels';
+
 export type homeState = {
     copy:copy,
     message:string,
+    technology: technologyState,
+}
+
+export type technologyState = {
+    initialNavConfig: techNavConfig|null,
 }
 
 export type copy = {
-    [key:string]:string|Array<string>
+    [key:string]:*
 }
 
 export type project = {
@@ -25,3 +32,13 @@ export type project = {
         layout:string,
     }
 }
+
+export type techNavElement = {
+    id?:number,
+    label:string,
+    slug:string,
+    icon?:*,
+    coords: {x:number, y:number},
+};
+
+export type techNavConfig = Array<techNavElement>

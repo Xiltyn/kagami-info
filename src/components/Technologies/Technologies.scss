@@ -1,0 +1,158 @@
+/*!
+ * Made with <3 by Kagami | jakub.bujko@kagami.info
+ * -----  kagami-info  -----
+ *   > $file.filename
+ *   > created @ 10/2/18 1:38 AM
+ */
+
+/*!
+ * Made with <3 by Kagami | jakub.bujko@kagami.info
+ * -----  kagami-info  -----
+ *   > $file.filename
+ *   > created @ 10/1/18 1:55 AM
+ */
+
+@import "../../styles/core/variables";
+
+.technologies {
+	width: 100%;
+	height: 100%;
+	padding: 72px 48px 0;
+	box-sizing: border-box;
+
+	h1 {
+		position: relative;
+		display: block;
+
+		margin: auto;
+		text-align: center;
+
+		.separator {
+			display: block;
+			max-width: 320px;
+			margin: 8px auto;
+		}
+	}
+
+	.technologies-content {
+		position: relative;
+
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		flex-wrap: wrap;
+
+		padding: 72px 48px;
+
+		.info-box {
+			width: 600px;
+			height: 500px;
+			margin-left: 10%;
+			background: $PRIMARY_DARK;
+		}
+
+		.technologies-nav {
+			position: relative;
+			height: 250px;
+			width: 100px;
+			margin-right: 72px;
+
+			.nav-element {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 8px;
+				height: 8px;
+				border-radius: 50%;
+				background-color: $GREY_LIGHT;
+
+				cursor: pointer;
+				opacity: .6;
+
+				z-index: 50;
+				transition: transform 1s cubic-bezier(.65,.12,.08,1),
+							opacity 1s cubic-bezier(.54,.25,.34,.89),
+							width .6s cubic-bezier(.56,.04,.3,1.57),
+							background-color .6s cubic-bezier(.56,.04,.3,1.57),
+							height .6s cubic-bezier(.56,.04,.3,1.57),
+							margin .6s cubic-bezier(.56,.04,.3,1.57);
+
+				.icon {
+					opacity: 0;
+					transition: all .3s ease-in-out;
+
+					padding: 4px;
+					box-sizing: border-box;
+
+					svg {
+						& > * {
+							fill: $GREY_DARK;
+						}
+					}
+				}
+
+				p {
+					position: absolute;
+					left: 56px;
+					top: 0;
+
+					width: 160px;
+
+					color: $PRIMARY;
+					font-size: 16px;
+					font-weight: 800;
+					line-height: 32px;
+					letter-spacing: .5px;
+
+					opacity: 0;
+					transform: translate(-50px, -6px);
+
+					transition: all .6s ease-in-out;
+				}
+
+				&:hover {
+					width: 48px;
+					height: 48px;
+					margin: -20px 0 0 -20px;
+
+					background-color: $PRIMARY;
+
+					.icon {
+						opacity: 1;
+					}
+
+					p {
+						opacity: 1;
+						transform: translate(0, 6px);
+					}
+				}
+			}
+
+			.nav-polyline {
+				position: absolute;
+				top: 0;
+				left: 0;
+
+				opacity: .1;
+
+				pointer-events: none;
+				transition: all 1s cubic-bezier(.65,.12,.08,1);
+				z-index: 30;
+				path {
+					transition: inherit;
+				}
+			}
+
+			&.active {
+				.nav-element {
+					opacity: 1;
+				}
+
+				.nav-polyline {
+					opacity: .5;
+				}
+			}
+		}
+	}
+
+}

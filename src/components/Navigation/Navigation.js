@@ -50,6 +50,14 @@ class Navigation extends Component<NavigationProps, NavigationState> {
                 id: 5,
                 label: 'Quality',
             },
+            {
+                id: 6,
+                label: 'Technologies',
+            },
+            {
+                id: 7,
+                label: 'Contact',
+            },
         ];
 
         return (

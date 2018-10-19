@@ -10,22 +10,29 @@ import animationContainer from '../../utils/animationContainer';
 
 import Hero from '../../components/Hero/Hero';
 import Header from '../../components/Header/Header';
-import Services from '../../components/Services/Services';
-
-import './Home.scss';
-
-import type { Dispatch, State } from '../../shared/redux.types';
-import { logger } from '../../utils/logger';
 import Seo from '../../components/Seo/Seo';
 import Native from '../../components/Native/Native';
 import Quality from '../../components/Quality/Quality';
+import Services from '../../components/Services/Services';
 import Navigation from '../../components/Navigation/Navigation';
+import Technologies from '../../components/Technologies/Technologies';
+
+import svg from '../../utils/svg';
+import { logger } from '../../utils/logger';
+
+import './Home.scss';
+import type { Dispatch, State } from '../../shared/redux.types';
+import { navConfig } from '../../shared/techNav.config';
+import type { techNavConfig } from '../../modules/app/types';
+import AppMiddleware from '../../modules/app/middleware';
 
 const AnimatedHeader = animationContainer(Header);
 
 type HomeProps = {
     copy:*;
     match:*;
+    initialNavConfig: techNavConfig;
+    setInitialTechNavConfig: (config:techNavConfig) => void;
 }
 type HomeState = {
     mousePosition:{x:number,y:number},
@@ -33,10 +40,11 @@ type HomeState = {
 
 const mapStateToProps = (state:State) => ({
     copy: state.app.copy,
+    initialNavConfig: state.app.technology.initialNavConfig,
 });
 
 const mapDispatchToProps = (dispatch:Dispatch) => bindActionCreators({
-
+    setInitialTechNavConfig: config => AppMiddleware.spawnNavigationPoints(config),
 }, dispatch);
 
 class Home extends Component<HomeProps, HomeState> {
@@ -49,6 +57,8 @@ class Home extends Component<HomeProps, HomeState> {
 
     componentDidMount() {
         window.addEventListener('mousemove', this.onMouseMove);
+
+        this.props.setInitialTechNavConfig(navConfig);
     }
 
     componentWillUnmount() {
@@ -75,6 +85,7 @@ class Home extends Component<HomeProps, HomeState> {
     render() {
         const {
             copy,
+            initialNavConfig,
             match: {
                 url,
             },
@@ -141,12 +152,26 @@ class Home extends Component<HomeProps, HomeState> {
                                    shouldAnimate={ fullpageApi.getActiveSection().index === 3 }
                                    copy={ copy }/>
                            </div>
-                           <div className="section">
+                           <div className="section section--quality">
                                <Quality
                                     nextSection={ fullpageApi.moveSectionDown }
                                     mousePosition={ mousePosition }
                                     shouldAnimate={ fullpageApi.getActiveSection().index === 4 }
                                     copy={ copy }/>
+                           </div>
+                           <div className="section section--projects">
+                               <Technologies
+                                   navConfig={ initialNavConfig }
+                                   nextSection={ fullpageApi.moveSectionDown }
+                                   mousePosition={ mousePosition }
+                                   shouldAnimate={ fullpageApi.getActiveSection().index === 5 }
+                                   copy={ copy }/>
+                           </div>
+                           <div className="section section--contact">
+                               <h2>Contact</h2>
+                               <div className="svg-container">
+                                   { svg.project_background_shape }
+                               </div>
                            </div>
                        </div>
                    );

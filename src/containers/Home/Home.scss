@@ -6,10 +6,40 @@
  */
 
 .fullpage-wrapper {
+
 	background: url("../../styles/images/background_line.png");
 	background-repeat: no-repeat;
 	background-position: center 716px;
 
 	height: 100%;
 
+	.section {
+		position: relative;
+		z-index: 30;
+	}
+
+	.section--quality,
+	.section--projects {
+		z-index: 40;
+	}
+
+	.section--contact {
+		position: relative;
+
+		.svg-container {
+			position: absolute;
+			width: 100%;
+			height: auto;
+			max-height: 250vh;
+			bottom: 0;
+			left: 0;
+			overflow: hidden;
+			opacity: .7;
+			pointer-events: none;
+
+			svg {
+				width: 100%;
+			}
+		}
+	}
 }
