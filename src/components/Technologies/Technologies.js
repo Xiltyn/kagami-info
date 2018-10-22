@@ -43,6 +43,7 @@ class Technologies extends Component<TechnologiesProps, TechnologiesState> {
 
     componentDidMount() {
         this.setCurrent(1);
+
     }
 
     shiftList = (next:number, type:'UP'|'DOWN') => {
