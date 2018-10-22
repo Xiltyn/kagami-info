@@ -1,0 +1,87 @@
+/*!
+ * Made with <3 by Kagami | jakub.bujko@kagami.info
+ * -----  kagami-info  -----
+ *   > $file.filename
+ *   > created @ 10/22/18 1:24 AM
+ */
+
+@import "../../../styles/core/variables";
+
+.info-box {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+
+	color: $GREY_TEXT;
+
+	width: 600px;
+	height: 500px;
+	padding: 24px 256px 24px 24px;
+
+	overflow: hidden;
+	background: rgba($GREY, .4);
+	transform: translate(-45%, -55%);
+	box-sizing: border-box;
+
+	animation: fadeInFromBottom .6s;
+	transition: all .6s ease-in-out;
+
+	h3 {
+		font-family: $MONTSERRAT;
+		font-size: 48px;
+		line-height: 52px;
+		padding-bottom: 32px;
+
+		opacity: .3;
+	}
+
+	p {
+		font-weight: 500;
+		line-height: 24px;
+
+		opacity: .2;
+	}
+
+	svg {
+		position: absolute;
+		top: 5%;
+		right: -35%;
+
+		height: 90%;
+		width: auto;
+
+		opacity: .1;
+
+		& > * {
+			fill: $GREY_TEXT;
+		}
+	}
+
+	&.active {
+		background: rgba($GREY, .7);
+
+		color: $GREY_LIGHT;
+
+		h3, p {
+			opacity: 1;
+		}
+
+		svg {
+			opacity: 1;
+			& > * {
+				fill: $PRIMARY;
+			}
+		}
+	}
+}
+
+@keyframes fadeInFromBottom {
+	from {
+		opacity: 0;
+		transform: translate(-45%, -50%);
+	}
+	to {
+		opacity: 1;
+		transform: translate(-45%, -55%);
+	}
+}

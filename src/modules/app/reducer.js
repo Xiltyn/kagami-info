@@ -12,9 +12,7 @@ import AppActions from './actions';
 
 const initialState = {
     message: '',
-    technology: {
-        initialNavConfig: null,
-    },
+    technologiesList: null,
     copy: {
         hero_top: 'Digital Perfection',
         hero_article: [
@@ -78,10 +76,7 @@ export default function AppReducer(state:homeState = initialState, action:() => 
     case AppActions.TYPES.SET_INITIAL_TECH_NAV_CONFIG:
         return state = {
             ...state,
-            technology: {
-                ...state.technology,
-                initialNavConfig: action.payload,
-            },
+            technologiesList: action.payload,
         };
     default:
         return state;

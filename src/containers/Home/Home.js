@@ -25,13 +25,14 @@ import type { Dispatch, State } from '../../shared/redux.types';
 import { navConfig } from '../../shared/techNav.config';
 import type { techNavConfig } from '../../modules/app/types';
 import AppMiddleware from '../../modules/app/middleware';
+import { TechnologiesList } from '../../modules/app/models';
 
 const AnimatedHeader = animationContainer(Header);
 
 type HomeProps = {
     copy:*;
     match:*;
-    initialNavConfig: techNavConfig;
+    technologiesList: TechnologiesList;
     setInitialTechNavConfig: (config:techNavConfig) => void;
 }
 type HomeState = {
@@ -40,7 +41,7 @@ type HomeState = {
 
 const mapStateToProps = (state:State) => ({
     copy: state.app.copy,
-    initialNavConfig: state.app.technology.initialNavConfig,
+    technologiesList: state.app.technologiesList,
 });
 
 const mapDispatchToProps = (dispatch:Dispatch) => bindActionCreators({
@@ -85,7 +86,7 @@ class Home extends Component<HomeProps, HomeState> {
     render() {
         const {
             copy,
-            initialNavConfig,
+            technologiesList,
             match: {
                 url,
             },
@@ -161,7 +162,7 @@ class Home extends Component<HomeProps, HomeState> {
                            </div>
                            <div className="section section--projects">
                                <Technologies
-                                   navConfig={ initialNavConfig }
+                                   technologiesList={ technologiesList }
                                    nextSection={ fullpageApi.moveSectionDown }
                                    mousePosition={ mousePosition }
                                    shouldAnimate={ fullpageApi.getActiveSection().index === 5 }

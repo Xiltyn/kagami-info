@@ -9,14 +9,19 @@
 
 import React, { Component } from 'react';
 import { rect } from '../../../shared/genericModels';
+
 import type { techNavConfig } from '../../../modules/app/types';
+import './PolylineNavigation.scss';
 
 type PolylineNavigationProps = {
+    passNext:(nextId:number) => void,
     initialPositions:techNavConfig,
+    current:number,
 }
 
 type PolylineNavigationState = {
     pointsPositions:techNavConfig,
+    isActive:boolean,
 }
 
 class PolylineNavigation extends Component<PolylineNavigationProps, PolylineNavigationState> {
@@ -24,6 +29,7 @@ class PolylineNavigation extends Component<PolylineNavigationProps, PolylineNavi
 
     state = {
         pointsPositions: this.props.initialPositions,
+        isActive: false,
     };
 
     componentDidMount() {
@@ -65,38 +71,42 @@ class PolylineNavigation extends Component<PolylineNavigationProps, PolylineNavi
         this.animationTicker = setInterval(() => {
             this.setState({
                 pointsPositions: this.updateNavPoints(),
+                isActive: false,
             });
         }, tick);
     };
 
     freezePoints = () => {
         this.clearPointsAnimation();
-        this.setState({
-            pointsPositions: this.props.initialPositions,
-        });
     };
 
     clearPointsAnimation = () => {
         window.clearInterval(this.animationTicker);
+        this.setState({
+            isActive: true,
+        });
     };
 
     render() {
         const {
-            initialPositions,
-        } = this.props;
+            pointsPositions,
+            isActive,
+        } = this.state;
 
         const {
-            pointsPositions,
-        } = this.state;
+            current,
+            passNext,
+        } = this.props;
 
         return pointsPositions && <ul
             onMouseEnter={ this.freezePoints }
             onMouseLeave={ this.initiatePointsAnimation }
-            className={ `technologies-nav ${pointsPositions === initialPositions ? 'active' : ''}` }>
+            className={ `polyline-nav ${isActive ? 'active' : ''}` }>
             {
                 pointsPositions.map(point => (
                     <li
-                        className={ `nav-element nav-element--${ point.slug }` }
+                        className={ `nav-element nav-element--${ point.slug } ${ point.id === current ? 'active' : ''}` }
+                        onClick={ () => point.id && passNext(point.id) }
                         style={ {
                             transform: `translate(${point.coords.x}px, ${point.coords.y}px)`,
                         } }

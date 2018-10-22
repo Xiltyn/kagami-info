@@ -7,16 +7,12 @@
 
 // @flow
 
-import { rect } from '../../shared/genericModels';
+import { TechnologiesList } from './models';
 
 export type homeState = {
     copy:copy,
     message:string,
-    technology: technologyState,
-}
-
-export type technologyState = {
-    initialNavConfig: techNavConfig|null,
+    technologiesList: TechnologiesList|null,
 }
 
 export type copy = {

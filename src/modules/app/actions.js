@@ -7,7 +7,7 @@
 
 // @flow
 
-import type { techNavConfig } from './types';
+import { TechnologiesList } from './models';
 
 class AppActions {
     static TYPES = Object.freeze({
@@ -20,7 +20,7 @@ class AppActions {
         payload: payload,
     });
 
-    static setInitialTechNavConfig = (payload:techNavConfig) => ({
+    static setInitialTechNavConfig = (payload:TechnologiesList) => ({
         type: AppActions.TYPES.SET_INITIAL_TECH_NAV_CONFIG,
         payload: payload,
     })

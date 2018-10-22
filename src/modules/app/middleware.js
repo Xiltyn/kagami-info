@@ -9,6 +9,7 @@ import type { Dispatch } from '../../shared/redux.types';
 import AppActions from './actions';
 import type { techNavConfig } from './types';
 import { logger } from '../../utils/logger';
+import { TechnologiesList } from './models';
 
 class AppMiddleware {
     static dispatchHello = (message:string) => (dispatch:Dispatch) => {
@@ -21,34 +22,11 @@ class AppMiddleware {
 
     static spawnNavigationPoints = (config:techNavConfig) => (dispatch:Dispatch) => {
         if(config) {
-            let result = [];
+            const payload = new TechnologiesList(config);
 
-            logger('==> Technologies.js > spawnNavigationPoints |> config :: ', 'IMPORTANT', config);
+            logger('==> Technologies.js > spawnNavigationPoints |> result :: ', 'IMPORTANT', payload);
 
-            config.map((el, index) => {
-                const initialX = Math.floor(Math.random() * (90 - 30) + 30);
-                const initialY = 50 * index;
-
-                if(!el.id) {
-                    el.id = index;
-                }
-
-                el = {
-                    ...el,
-                    coords: {
-                        x: initialX,
-                        y: initialY,
-                    },
-                };
-
-                logger('==> Technologies.js > spawnNavigationPoints |> for loop element :: ', 'IMPORTANT', el);
-
-                result = [ ...result, el ];
-            });
-
-            logger('==> Technologies.js > spawnNavigationPoints |> result :: ', 'IMPORTANT', result);
-
-            dispatch(AppActions.setInitialTechNavConfig(result));
+            dispatch(AppActions.setInitialTechNavConfig(payload));
         }
     };
 }

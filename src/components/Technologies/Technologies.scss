@@ -17,7 +17,7 @@
 .technologies {
 	width: 100%;
 	height: 100%;
-	padding: 72px 48px 0;
+	padding: 48px 48px 0;
 	box-sizing: border-box;
 
 	h1 {
@@ -36,123 +36,40 @@
 
 	.technologies-content {
 		position: relative;
+		width: 100%;
+		height: 90%;
 
 		display: flex;
 		align-items: center;
 		justify-content: space-around;
 		flex-wrap: wrap;
 
-		padding: 72px 48px;
+		padding: 48px;
 
-		.info-box {
-			width: 600px;
-			height: 500px;
-			margin-left: 10%;
-			background: $PRIMARY_DARK;
+		.left-col,
+		.mid-col,
+		.right-col {
+			height: 100%;
+
+			display: flex;
+			align-items: center;
 		}
 
-		.technologies-nav {
-			position: relative;
-			height: 250px;
-			width: 100px;
-			margin-right: 72px;
-
-			.nav-element {
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 8px;
-				height: 8px;
-				border-radius: 50%;
-				background-color: $GREY_LIGHT;
-
-				cursor: pointer;
-				opacity: .6;
-
-				z-index: 50;
-				transition: transform 1s cubic-bezier(.65,.12,.08,1),
-							opacity 1s cubic-bezier(.54,.25,.34,.89),
-							width .6s cubic-bezier(.56,.04,.3,1.57),
-							background-color .6s cubic-bezier(.56,.04,.3,1.57),
-							height .6s cubic-bezier(.56,.04,.3,1.57),
-							margin .6s cubic-bezier(.56,.04,.3,1.57);
-
-				.icon {
-					opacity: 0;
-					transition: all .3s ease-in-out;
-
-					padding: 4px;
-					box-sizing: border-box;
-
-					svg {
-						& > * {
-							fill: $GREY_DARK;
-						}
-					}
-				}
-
-				p {
-					position: absolute;
-					left: 56px;
-					top: 0;
-
-					width: 160px;
-
-					color: $PRIMARY;
-					font-size: 16px;
-					font-weight: 800;
-					line-height: 32px;
-					letter-spacing: .5px;
-
-					opacity: 0;
-					transform: translate(-50px, -6px);
-
-					transition: all .6s ease-in-out;
-				}
-
-				&:hover {
-					width: 48px;
-					height: 48px;
-					margin: -20px 0 0 -20px;
-
-					background-color: $PRIMARY;
-
-					.icon {
-						opacity: 1;
-					}
-
-					p {
-						opacity: 1;
-						transform: translate(0, 6px);
-					}
-				}
-			}
-
-			.nav-polyline {
-				position: absolute;
-				top: 0;
-				left: 0;
-
-				opacity: .1;
-
-				pointer-events: none;
-				transition: all 1s cubic-bezier(.65,.12,.08,1);
-				z-index: 30;
-				path {
-					transition: inherit;
-				}
-			}
-
-			&.active {
-				.nav-element {
-					opacity: 1;
-				}
-
-				.nav-polyline {
-					opacity: .5;
-				}
-			}
+		.left-col {
+			justify-content: flex-end;
+			width: 15%;
 		}
+
+		.mid-col {
+			justify-content: center;
+			width: 50%;
+		}
+
+		.right-col {
+			justify-content: flex-start;
+			width: 15%;
+		}
+
 	}
 
 }
