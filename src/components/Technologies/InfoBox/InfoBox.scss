@@ -23,8 +23,11 @@
 	transform: translate(-45%, -55%);
 	box-sizing: border-box;
 
-	animation: fadeInFromBottom .6s;
 	transition: all .6s ease-in-out;
+
+	&:last-of-type {
+		animation: fadeInFromBottom .6s;
+	}
 
 	h3 {
 		font-family: $MONTSERRAT;

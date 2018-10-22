@@ -14,6 +14,7 @@ type InfoBoxProps = {
     tech: Object,
     techIndex: number,
     isActive: boolean,
+    style: Object,
 }
 
 const InfoBox = (props:InfoBoxProps) => {
@@ -21,6 +22,7 @@ const InfoBox = (props:InfoBoxProps) => {
         tech,
         isActive,
         techIndex,
+        style,
     } = props;
 
     return (
@@ -29,6 +31,7 @@ const InfoBox = (props:InfoBoxProps) => {
             style={ {
                 marginTop: `${techIndex * 8}px`,
                 marginLeft: `-${techIndex * 8}px`,
+                ...style,
             } }>
             <h3>{ tech.name }</h3>
             <p>{ tech.text }</p>

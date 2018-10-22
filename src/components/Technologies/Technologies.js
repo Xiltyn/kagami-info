@@ -49,14 +49,9 @@ class Technologies extends Component<TechnologiesProps, TechnologiesState> {
     shiftList = (next:number, type:'UP'|'DOWN') => {
         const {
             list,
-            current,
         } = this.state;
 
         let nextList = Array.from(list);
-
-        console.log('next', next);
-        console.log('current', current);
-        console.log('nextList', nextList);
 
         for(let el of list) {
             if(el.id === next) {
@@ -133,6 +128,9 @@ class Technologies extends Component<TechnologiesProps, TechnologiesState> {
                                 <InfoBox
                                     key={ tech.id }
                                     tech={ tech }
+                                    style={ {
+                                        opacity: (1 / list.length) * (index + 1),
+                                    } }
                                     techIndex={ index }
                                     isActive={ tech.id === current }/>
                             ))
