@@ -2,48 +2,91 @@
  = Made with <3 by Kagami | jakub.bujko@kagami.info
  = -----  kagami-info  -----
  =   > $file.filename
- =   > created @ 9/11/18 11:35 PM
+ =   > created @ 9/13/18 1:41 AM
  ===============================================*/
 
 // @flow
 
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import type { Dispatch, State } from '../../shared/redux.types';
-import type { copy } from '../../modules/app/types';
+import svg from '../../utils/svg';
 
 import './Navigation.scss';
 
 type NavigationProps = {
-    copy?:copy
+    positionTop:number,
+    scrollTo:(id:number) => void,
 }
 
-type NavigationState = {}
+type NavigationState = {
 
-const mapStateToProps = (state:State) => ({
-    copy: state.app.copy,
-});
-
-const mapDispatchToProps = (dispatch:Dispatch) => bindActionCreators({
-
-}, dispatch);
+}
 
 class Navigation extends Component<NavigationProps, NavigationState> {
 
     render() {
         const {
-            copy,
+            positionTop,
+            scrollTo,
         } = this.props;
 
+        const navConfig = [
+            {
+                id: 1,
+                label: 'Top',
+            },
+            {
+                id: 2,
+                label: 'Services',
+            },
+            {
+                id: 3,
+                label: 'Seo',
+            },
+            {
+                id: 4,
+                label: 'Native Apps',
+            },
+            {
+                id: 5,
+                label: 'Quality',
+            },
+            {
+                id: 6,
+                label: 'Technologies',
+            },
+            {
+                id: 7,
+                label: 'Contact',
+            },
+        ];
+
         return (
-            <div className='navigation'>
-                <h1 className="text-bit">
-                    {copy.find(el => el.name === 'hero_top').text}
-                </h1>
-            </div>
+            <nav
+                className="navigation"
+                style={ {
+                    top: positionTop,
+                } }>
+                <div className="svg-container menu-inner">
+                    { svg.menu_inner }
+                </div>
+                <div className="svg-container menu-outer">
+                    { svg.menu_outer }
+                    <h3 className="text-bit text-bit-alt text-bit-alt--primary">
+                        menu
+                    </h3>
+                </div>
+                <ul>
+                    {
+                        navConfig.map((el, index) =>
+                            <li key={ index } onClick={ () => scrollTo(el.id) }>
+                                { el.label }
+                            </li>
+                        )
+                    }
+                </ul>
+            </nav>
         );
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
+export default Navigation;

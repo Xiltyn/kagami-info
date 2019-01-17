@@ -2,6 +2,12 @@
 # yarn lockfile v1
 
 
+"@fullpage/react-fullpage@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@fullpage/react-fullpage/-/react-fullpage-0.1.0.tgz#0c03ff7899e2f2c71f597dab7f8e97495c51c5cf"
+  dependencies:
+    fullpage.js "^3.0.2"
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
@@ -3290,6 +3296,10 @@ fstream@^1.0.0, fstream@^1.0.2:
     mkdirp ">=0.5 0"
     rimraf "2"
 
+fullpage.js@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/fullpage.js/-/fullpage.js-3.0.2.tgz#4a38e8ac5be5ebf2d9631dc462468255adaa110e"
+
 function-bind@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
@@ -5700,7 +5710,7 @@ popmotion-pose@^2.2.0:
     style-value-types "^3.0.3"
     tslib "^1.9.1"
 
-popmotion@^8.3.3:
+popmotion@^8.3.3, popmotion@^8.3.8:
   version "8.3.8"
   resolved "https://registry.yarnpkg.com/popmotion/-/popmotion-8.3.8.tgz#af2b9ba00d4be089461043b60ea82c1709352a27"
   dependencies:

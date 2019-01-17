@@ -2,16 +2,118 @@
  * Made with <3 by Kagami | jakub.bujko@kagami.info
  * -----  kagami-info  -----
  *   > $file.filename
- *   > created @ 9/12/18 1:36 AM
+ *   > created @ 9/13/18 1:43 AM
  */
 
+@import "../../styles/core/variables";
+
 .navigation {
-	position: relative;
+	position: absolute;
+	top: 22.5%;
+	right: -40px;
+	width: auto;
+	height: 438px;
 
-	width: 100%;
-	height: 120px;
+	opacity: .8;
+	z-index: 50;
 
-	h1 {
-		text-transform: uppercase;
+	transition: top 1s cubic-bezier(.45,-0.12,.45,1.42), right .3s cubic-bezier(.45,-0.12,.45,1.42);
+
+	ul {
+		position: absolute;
+		top: 140px;
+		right: -24px;
+		width: 96px;
+		text-align: center;
+
+		opacity: 0;
+		z-index: 60;
+
+		transition: all .4s ease-in-out;
+
+		li {
+			margin-bottom: 8px;
+			cursor: pointer;
+
+			font-weight: 800;
+			font-size: 14px;
+			color: rgba($GREY_LIGHT, .7);
+
+			transition: all .3s ease-in-out;
+
+			&:hover {
+				color: $GREY_LIGHT;
+			}
+		}
+	}
+
+	.svg-container {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 100%;
+		height: 100%;
+
+		&.menu-inner {
+			width: 129px;
+			float: right;
+			z-index: 55;
+
+			& > svg path {
+				d:path('M128.153446,0.44426528 C128.153446,138.098153 66.87958388,124.952458 64.603745124,220.355579 C66.91620286,309.163069 128.723017,297.783043 128.723017,437.874694');
+				transition: all .3s cubic-bezier(.45,-0.12,.45,1.42) .05s;
+			}
+
+		}
+
+		&.menu-outer {
+			width: 164px;
+			z-index: 50;
+
+			& > svg path {
+				d:path("M162.327698,2.27828349 C162.327698,3.82751625 163.46684,0.945487646 163.46684,0.569571 C163.46684,144.830481 64.76241873,134.259246 60.569570871,219.854356 C64.55412224,296.586944 162.897269,294.58775 162.897269,438");
+				transition: all .3s cubic-bezier(.45,-0.12,.45,1.42);
+			}
+
+			h3 {
+				position: absolute;
+				top: 206px;
+				left: 52px;
+				font-size: 20px;
+				line-height: 20px;
+				transform: rotate(-90deg);
+				transition: all .3s cubic-bezier(.45,-0.12,.45,1.42) .02s;
+			}
+
+			svg {
+				filter: drop-shadow( 0 0 24px rgba(#000, .5) );
+			}
+		}
+	}
+
+	&:hover {
+		right: -8px;
+		opacity: 1;
+
+		ul {
+			right: 8px;
+			opacity: 1;
+		}
+
+		.svg-container {
+			&.menu-inner > svg path {
+				d:path('M128.153446,0.44426528 C128.153446,138.098153 -1.87958388,124.952458 0.603745124,220.355579 C2.91620286,309.163069 128.723017,297.783043 128.723017,437.874694');
+			}
+
+			&.menu-outer {
+				h3 {
+					left: -8px;
+				}
+
+				svg path {
+					d:path('M162.327698,2.27828349 C162.327698,3.82751625 163.46684,-0.945487646 163.46684,0.569570871 C163.46684,144.830481 -2.76241873,134.259246 0.569570871,219.854356 C3.55412224,296.586944 162.897269,294.58775 162.897269,438');
+				}
+			}
+		}
 	}
 }

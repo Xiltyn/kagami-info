@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import posed from 'react-pose';
 import { logger } from './logger';
+import camelCaseToDash from './camelCaseToDash';
 
-const animationContainer = ComponentToAnimate => class extends Component {
+const animationContainer = ComponentToAnimate => class AnimationContainer extends Component {
     static propTypes = {
         isMounted: PropTypes.bool.isRequired,
         delayTime: PropTypes.number.isRequired,
@@ -41,13 +42,18 @@ const animationContainer = ComponentToAnimate => class extends Component {
     };
 
     componentDidMount() {
-        const _TIMEOUT = 300;
+        const _TIMEOUT = 200;
+        const {
+            isMounted,
+        } = this.props;
 
-        setTimeout(() => {
-            this.setState({
-                shouldAnimate: true,
-            });
-        }, _TIMEOUT);
+        if(isMounted) {
+            setTimeout(() => {
+                this.setState({
+                    shouldAnimate: true,
+                });
+            }, _TIMEOUT);
+        }
     }
 
     componentDidUpdate(oldProps) {
@@ -64,7 +70,7 @@ const animationContainer = ComponentToAnimate => class extends Component {
             }, delayTime);
 
         } else if(!oldProps.isMounted && isMounted) {
-            const _TIMEOUT = 300;
+            const _TIMEOUT = 200;
 
             this.setState({
                 shouldRender: true,
@@ -86,10 +92,10 @@ const animationContainer = ComponentToAnimate => class extends Component {
 
     getComponentName = (options = { debug: false }) => {
         const component = <ComponentToAnimate/>;
-        const displayName = component.type.displayName.toLowerCase();
-        const regex_compName = /connect\(|\)/gm;
+        const displayName = component.type.displayName;
+        const regex_compName = /Connect\(|\)/gm;
 
-        if(displayName.includes('connect')) {
+        if(displayName.includes('Connect')) {
             const result = displayName.replace(regex_compName, '');
 
             if(options.debug) {
@@ -134,7 +140,7 @@ const animationContainer = ComponentToAnimate => class extends Component {
 
         return this.state.shouldRender ?
             <AnimationWrapper
-                className={ `animation-container animation-container--${componentName}` }
+                className={ `animation-container animated-${camelCaseToDash(componentName)}` }
                 pose={ shouldAnimate ? `${componentName}enter` : isMounted ? `${componentName}preEnter` : `${componentName}exit` }>
                 <ComponentToAnimate { ...this.props } />
             </AnimationWrapper> : null;

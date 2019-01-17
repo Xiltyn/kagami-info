@@ -1,0 +1,68 @@
+/*!
+ * Made with <3 by Kagami | jakub.bujko@kagami.info
+ * -----  kagami-info  -----
+ *   > $file.filename
+ *   > created @ 10/1/18 1:55 AM
+ */
+
+@import "../../styles/core/variables";
+
+.technologies {
+	width: 100%;
+	height: 100%;
+	padding: 48px 48px 0;
+	box-sizing: border-box;
+
+	h1 {
+		position: relative;
+		display: block;
+
+		margin: auto;
+		text-align: center;
+
+		.separator {
+			display: block;
+			max-width: 320px;
+			margin: 8px auto;
+		}
+	}
+
+	.technologies-content {
+		position: relative;
+		width: 100%;
+		height: 90%;
+
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		flex-wrap: wrap;
+
+		padding: 48px;
+
+		.left-col,
+		.mid-col,
+		.right-col {
+			height: 100%;
+
+			display: flex;
+			align-items: center;
+		}
+
+		.left-col {
+			justify-content: flex-end;
+			width: 15%;
+		}
+
+		.mid-col {
+			justify-content: center;
+			width: 50%;
+		}
+
+		.right-col {
+			justify-content: flex-start;
+			width: 15%;
+		}
+
+	}
+
+}

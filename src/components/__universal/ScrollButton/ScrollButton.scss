@@ -1,0 +1,23 @@
+/*!
+ * Made with <3 by Kagami | jakub.bujko@kagami.info
+ * -----  kagami-info  -----
+ *   > $file.filename
+ *   > created @ 9/16/18 1:10 AM
+ */
+
+@import "../../../styles/core/variables";
+
+.scroll-button {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+
+	& * {
+		cursor: pointer;
+	}
+
+	button {
+		background: none;
+		border: none;
+	}
+}

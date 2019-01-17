@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Redirect, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import navConfig from 'shared/nav.config';
+import routesConfig from 'shared/routes.config';
 
 import AuthMiddleware from 'modules/auth/middleware';
 import { logger } from './logger';
-import LoaderSpinner from '../components/Loader/LoaderSpinner';
+import LoaderSpinner from '../components/__universal/Loader/LoaderSpinner';
 
 const mapStateToProps = state => ({
     isAuthenticated: state.auth.isAuthenticated,
@@ -36,8 +36,8 @@ class RouteHandler extends Component {
     render() {
         const { isAuthenticated, component, ...rest } = this.props;
         const componentPath = rest.location.pathname;
-        const currentConfigElement = navConfig.filter(
-            element => element.url === componentPath)[ 0 ] && navConfig.filter(
+        const currentConfigElement = routesConfig.filter(
+            element => element.url === componentPath)[ 0 ] && routesConfig.filter(
             element => element.url === componentPath)[ 0 ].type;
 
         logger('==> RouteHandler |> componentPath', 'INFO', rest.location);

@@ -2,7 +2,7 @@ import React from 'react';
 import nprogress from 'nprogress';
 import PropTypes from 'prop-types';
 
-import LoaderSpinner from '../components/Loader/LoaderSpinner';
+import LoaderSpinner from '../components/__universal/Loader/LoaderSpinner';
 
 // Flag for first route loaded on page
 // Use it to load Google Analytics and other deferred stuff

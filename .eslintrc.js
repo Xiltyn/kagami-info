@@ -5,6 +5,12 @@ module.exports = {
         'node': true,
         'browser': true
     },
+    'settings': {
+        "react": {
+            "version": "16.4.1",
+            "flowVersion": "0.80"
+        },
+    },
     'extends': [
         'eslint:recommended',
         'plugin:react/recommended'
@@ -66,6 +72,7 @@ module.exports = {
         'react/jsx-indent': [ 'error', 4 ],
         'react/jsx-no-bind': 0,
         'react/prefer-stateless-function': 0,
+        'react/no-find-dom-node': 0,
         'semi': [ 2, 'always' ],
         'space-before-function-paren': [ 'error', 'never' ],
         'space-in-parens': [ 'error', 'never' ],

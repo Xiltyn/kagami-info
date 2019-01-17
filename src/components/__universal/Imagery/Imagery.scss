@@ -1,0 +1,34 @@
+/*!
+ * Made with <3 by Kagami | jakub.bujko@kagami.info
+ * -----  kagami-info  -----
+ *   > $file.filename
+ *   > created @ 9/13/18 12:20 AM
+ */
+
+@import "../../../styles/core/variables";
+
+.animated-imagery {
+	position: relative;
+	width: 45%;
+	height: 300px;
+	max-width: 520px;
+
+	.imagery-container {
+		width: 100%;
+		height: 100%;
+
+		.imagery {
+			position: relative;
+
+			width: 100%;
+			height: 100%;
+			padding: 0 0 0 24px;
+
+			.layer {
+				position: absolute;
+				transition: transform .3s ease-out;
+			}
+		}
+	}
+
+}

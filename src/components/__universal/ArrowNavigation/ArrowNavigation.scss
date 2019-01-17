@@ -1,0 +1,65 @@
+/*!
+ * Made with <3 by Kagami | jakub.bujko@kagami.info
+ * -----  kagami-info  -----
+ *   > $file.filename
+ *   > created @ 10/20/18 3:12 PM
+ */
+
+@import "../../../styles/core/variables";
+
+.arrow-nav-container {
+	height: 160px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+
+	.arrow {
+		position: relative;
+
+		width: 48px;
+		height: 48px;
+
+		cursor: pointer;
+
+		&:after,
+		&:before {
+			content: '';
+			position: absolute;
+			bottom: 8px;
+
+			height: 4px;
+			width: 60%;
+
+			border-radius: 2px;
+			background-color: $GREY_TEXT;
+
+			transition: all .3s ease-in-out;
+		}
+
+		&:after {
+			left: 0;
+
+			transform: rotate(45deg);
+		}
+
+		&:before {
+			right: 0;
+
+			transform: rotate(-45deg);
+		}
+
+
+		&.up {
+			transform: rotate(180deg);
+		}
+
+		&:hover {
+			&:after,
+			&:before {
+				background: $PRIMARY;
+			}
+		}
+	}
+}

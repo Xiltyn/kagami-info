@@ -1,19 +1,33 @@
+// @flow
+
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Home from '../../containers/Home/Home';
-import Navigation from '../../components/Navigation/Navigation';
 
-class Content extends Component {
+import { logger } from '../../utils/logger';
 
-    componentDidMount() {}
 
-    componentWillUnmount() {}
+
+type ContentProps = {
+    match:Object,
+}
+
+type ContentState = {
+
+}
+
+class Content extends Component<ContentProps, ContentState> {
+    state = {
+
+    };
 
     render() {
+        logger('==> Content/index.js |> Current match state :: ', 'IMPORTANT', this.props.match);
+
         return (
-            <div>
-                <Navigation />
-                <div className={ 'content' }>
+            <div
+                className="content-container">
+                <div className="content">
                     <Route path={ '/' } component={ Home } exact={ true }/>
                 </div>
             </div>

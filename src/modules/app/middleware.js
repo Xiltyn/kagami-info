@@ -7,6 +7,9 @@
 
 import type { Dispatch } from '../../shared/redux.types';
 import AppActions from './actions';
+import type { techNavConfig } from './types';
+import { logger } from '../../utils/logger';
+import { TechnologiesList } from './models';
 
 class AppMiddleware {
     static dispatchHello = (message:string) => (dispatch:Dispatch) => {
@@ -15,7 +18,17 @@ class AppMiddleware {
         };
 
         dispatch(AppActions.setHelloMessage(payload));
-    }
+    };
+
+    static spawnNavigationPoints = (config:techNavConfig) => (dispatch:Dispatch) => {
+        if(config) {
+            const payload = new TechnologiesList(config);
+
+            logger('==> Technologies.js > spawnNavigationPoints |> result :: ', 'IMPORTANT', payload);
+
+            dispatch(AppActions.setInitialTechNavConfig(payload));
+        }
+    };
 }
 
 export default AppMiddleware;
